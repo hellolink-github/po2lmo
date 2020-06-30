@@ -71,24 +71,18 @@ jobs:
           git clone -b master --single-branch https://github.com/kongfl888/po2lmo.git
           mv po2lmo friendlywrt-rk3328/friendlywrt/package
 
-      - name: Update Feeds
-        run: |
-          cd friendlywrt-rk3328/friendlywrt
-          ./scripts/feeds update -a
-          ./scripts/feeds install -a
+#      - name: Update Feeds
+#        run: |
+#          cd friendlywrt-rk3328/friendlywrt
+#          ./scripts/feeds update -a
+#          ./scripts/feeds install -a
 
       - name: Build
         run: |
           cd friendlywrt-rk3328
-          sed -i 's/set -eu/set -u/' scripts/mk-friendlywrt.sh
+          cp -f ../mk-friendlywrt.sh scripts/mk-friendlywrt.sh
           wget https://raw.githubusercontent.com/kongfl888/friendlywrt_device_rk3328/master/rk3328/nanopi_r2s.mk -O .current_config.mk
-          #./build.sh friendlywrt || echo "0"
-          #make defconfig
-          #let make_process=$(nproc)+1
-          #make toolchain/install -j${make_process} V=s
-          make menuconfig || echo ""
-          make -j${make_process} download V=s  || echo ""
-          make package/po2lmo/compile V=99
+          ./build.sh friendlywrt
 
       - name: Assemble Artifact
         id: assemble_artifact
