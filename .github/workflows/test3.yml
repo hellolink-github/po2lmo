@@ -84,10 +84,10 @@ jobs:
           wget https://raw.githubusercontent.com/kongfl888/friendlywrt_device_rk3328/master/rk3328/nanopi_r2s.mk -O .current_config.mk
           #./build.sh friendlywrt || echo "0"
           #make defconfig
-          let make_process=$(nproc)+1
-          make toolchain/install -j${make_process} V=s
-          make menuconfig
-          make -j8 download V=s
+          #let make_process=$(nproc)+1
+          #make toolchain/install -j${make_process} V=s
+          make menuconfig || echo ""
+          make -j${make_process} download V=s  || echo ""
           make package/po2lmo/compile V=99
 
       - name: Assemble Artifact
