@@ -87,6 +87,7 @@ jobs:
           let make_process=$(nproc)+1
           make toolchain/install -j${make_process} V=s
           make menuconfig
+          make -j8 download V=s
           make package/po2lmo/compile V=99
 
       - name: Assemble Artifact
