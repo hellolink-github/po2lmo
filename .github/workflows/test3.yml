@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/test.yml'
+      - '.github/workflows/test3.yml'
       - 'files/**'
       - 'Makefile'
       - 'base_r2s.seed'
