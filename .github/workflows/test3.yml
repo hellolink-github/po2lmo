@@ -83,7 +83,7 @@ jobs:
           sed -i 's/set -eu/set -u/' scripts/mk-friendlywrt.sh
           wget https://raw.githubusercontent.com/kongfl888/friendlywrt_device_rk3328/master/rk3328/nanopi_r2s.mk -O .current_config.mk
           #./build.sh friendlywrt || echo "0"
-          make defconfig
+          #make defconfig
           let make_process=$(nproc)+1
           make toolchain/install -j${make_process} V=s
           make menuconfig
