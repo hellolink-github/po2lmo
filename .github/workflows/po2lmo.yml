@@ -25,6 +25,7 @@ jobs:
         run: |
           wget https://github.com/kongfl888/luci-app-kcpufreq/raw/master/po/zh-cn/kcpufreq.po
           mkdir -p ./i18n/
+          chmod +x ./po2lmo
           ./po2lmo kcpufreq.po ./i18n/kcpufreq.zh-cn.lmo
 
       - name: Upload Artifact
