@@ -23,10 +23,10 @@ jobs:
 
       - name: build
         run: |
-          wget https://github.com/kongfl888/luci-app-kcpufreq/raw/master/po/zh-cn/kcpufreq.po
+          wget https://raw.githubusercontent.com/BoringCat/luci-app-minieap/master/files/luci/i18n/minieap.zh-cn.po
           mkdir -p ./i18n/
           chmod +x ./po2lmo
-          ./po2lmo kcpufreq.po ./i18n/kcpufreq.zh-cn.lmo
+          ./po2lmo minieap.zh-cn.po ./i18n/minieap.zh-cn.lmo
 
       - name: Upload Artifact
         uses: actions/upload-artifact@main
